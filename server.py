@@ -57,21 +57,19 @@ def update(friend_id):
 		'specific_id': friend_id
 	}
 	original = mysql.query_db(query1, data1)
-	if request.form['first_name']>0:
-		fname = original[0]['first_name']
-	else:
+	if len(request.form['first_name'])>0:
 		fname = request.form['first_name']
 
-	if request.form['last_name']>0:
-		lname = original[0]['last_name']
 	else:
+		fname = original[0]['first_name']
+	if len(request.form['last_name'])>0:
 		lname = request.form['last_name']
-	if request.form['email']>0 and not EMAIL_REGEX.match(request.form['email']):
-		mail = original[0]['email']
-
 	else:
+		lname = original[0]['last_name']
+	if len(request.form['email'])>0 and not EMAIL_REGEX.match(request.form['email']):
 		mail = request.form['email']
-
+	else:
+		mail = original[0]['email']
 	query2 = "UPDATE friends SET first_name = :first_name, last_name = :last_name, email = :email, updated_at = NOW() WHERE id = :specific_id"
 	data2 = {
 		'first_name': fname,
