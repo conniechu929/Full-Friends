@@ -1,0 +1,28 @@
+.friend_info{
+  display: inline-block;
+  vertical-align: top;
+}
+.friend_buttons{
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 20px;
+}
+
+.square{
+  border: 1px solid black;
+  padding-left: 15px;
+  width: 270px;
+  height: 120px;
+  margin-bottom: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+.confirm{
+  display: inline-block;
+  vertical-align: top;
+}
+#Error{
+  background-color: red;
+  width: 200px;
+  border: 1px solid black;
+}

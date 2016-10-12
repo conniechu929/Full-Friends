@@ -4,34 +4,43 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 	</head>
 	<body>
-		<div id="Error">
-			<h1>Enter all fields</h1>
-			{% with messages = get_flashed_messages() %}
-				{% if messages %}
-					{% for message in messages %}
-						<p>{{message}}</p>
-					{% endfor %}
-				{% endif %}
-			{% endwith %}
-		</div>
+
 		<div id='results'>
 			<h1>These are all my friends!</h1>
 			{% for friend in all_friends: %}
-				<form action="/friend/{{ friend['id'] }}/edit">
-					<input type='hidden' name='id' value="{{ friend['id'] }}">
-					<input type='submit' value='update'>
-				</form>
-				<form action='/friends/{{ friend["id"] }}/delete' method='post'>
-					<input type='hidden' name='id' value="{{ friend['id'] }}"> 
-					<input type="submit" name="delete" value="delete">
-				</form>
-				<p>ID: {{ friend['id'] }}</p>
-				<p>First Name: {{ friend['first_name'] }}</p>
-				<p>Last Name: {{ friend['last_name'] }}</p>
-				<p>email: {{ friend['email'] }}</p>
-				<hr>
+			<div class="square">
+				<div class="friend_info">
+					<p>First Name: {{ friend['first_name'] }}</p>
+					<p>Last Name: {{ friend['last_name'] }}</p>
+					<p>email: {{ friend['email'] }}</p>
+				</div>
+				<div class="friend_buttons">
+					<form action="/friend/{{friend['id']}}/edit">
+						<input type='hidden' name='id' value="{{ friend['id'] }}">
+						<input type='submit' value='Update'>
+					</form>
+					<form action='/friends/{{friend["id"]}}/delete' method='post'>
+						<input type='hidden' name='id' value="{{ friend['id'] }}">
+						<input type="submit" name="delete" value="Delete">
+					</form>
+				</div>
+			</div>
 			{% endfor %}
 		</div>
+		<hr>
+		<h1>Enter all fields</h1>
+
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<div id="Error">
+					{% for message in messages %}
+							<p>{{message}}</p>
+					{% endfor %}
+					</div>
+				{% endif %}
+			{% endwith %}
+
+
 		<div id='container'>
 				<form action='/friends' method='post'>
 				<label for='first_name'>First Name:<input type='text' name='first_name' id='first_name'></label>
