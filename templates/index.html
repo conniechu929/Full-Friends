@@ -27,11 +27,11 @@
 				<div class="friend_buttons">
 					<form action="/friend/{{friend['id']}}/edit">
 						<input type='hidden' name='id' value="{{ friend['id'] }}">
-						<input type='submit' value='update'>
+						<input type='submit' value='Update'>
 					</form>
 					<form action='/friends/{{friend["id"]}}/delete' method='post'>
 						<input type='hidden' name='id' value="{{ friend['id'] }}">
-						<input type="submit" name="delete" value="delete">
+						<input type="submit" name="delete" value="Delete">
 				</form>
 				</div>
 			</div>
