@@ -11,8 +11,11 @@
 .square{
   border: 1px solid black;
   padding-left: 15px;
-  width: 300px;
+  width: 270px;
+  height: 120px;
   margin-bottom: 5px;
+  display: inline-block;
+  vertical-align: top;
 }
 .confirm{
   display: inline-block;
