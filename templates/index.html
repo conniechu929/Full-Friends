@@ -4,16 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 	</head>
 	<body>
-		<div id="Error">
 
-			{% with messages = get_flashed_messages() %}
-				{% if messages %}
-					{% for message in messages %}
-						<p>{{message}}</p>
-					{% endfor %}
-				{% endif %}
-			{% endwith %}
-		</div>
 		<div id='results'>
 			<h1>These are all my friends!</h1>
 			{% for friend in all_friends: %}
@@ -32,13 +23,25 @@
 					<form action='/friends/{{friend["id"]}}/delete' method='post'>
 						<input type='hidden' name='id' value="{{ friend['id'] }}">
 						<input type="submit" name="delete" value="Delete">
-				</form>
+					</form>
 				</div>
 			</div>
 			{% endfor %}
-			<hr>
 		</div>
+		<hr>
 		<h1>Enter all fields</h1>
+
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<div id="Error">
+					{% for message in messages %}
+							<p>{{message}}</p>
+					{% endfor %}
+					</div>
+				{% endif %}
+			{% endwith %}
+
+
 		<div id='container'>
 				<form action='/friends' method='post'>
 				<label for='first_name'>First Name:<input type='text' name='first_name' id='first_name'></label>

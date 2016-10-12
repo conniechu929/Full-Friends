@@ -18,3 +18,8 @@
   display: inline-block;
   vertical-align: top;
 }
+#Error{
+  background-color: red;
+  width: 200px;
+  border: 1px solid black;
+}

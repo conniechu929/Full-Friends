@@ -1,23 +1,23 @@
 <html>
-<head>
-	<title>Update Info</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	<head>
+		<title>Update Info</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 
-</head>
-<body>
-	<h1>Enter New Information</h1>
-	<h3>Leave Blank to Keep Old Information</h3>
-	<hr>
-	{%if all_friends%}
-	{%for friend in all_friends:%}
-		<form action="/friends/{{ friend['id'] }}" method='post'>
-			<input type='hidden' name='id' value="{{ friend['id'] }}">
-				<label for='first_name'>First Name:<input type='text' name='first_name' id='first_name'></label>
-				<label for='last_name'>Last Name:<input type='text' name='last_name' id='last_name'></label>
-				Email: <input type='text' name='email'>
-			<input type='submit' value='Update'>
-		</form>
-	{% endfor %}
-	{%endif%}
-</body>
+	</head>
+	<body>
+		<h1>Enter New Information</h1>
+		<h3>Leave Blank to Keep Old Information</h3>
+		<hr>
+		{%if all_friends%}
+			{%for friend in all_friends:%}
+				<form action="/friends/{{ friend['id'] }}" method='post'>
+					<input type='hidden' name='id' value="{{ friend['id'] }}">
+						<label for='first_name'>First Name:<input type='text' name='first_name' id='first_name'></label>
+						<label for='last_name'>Last Name:<input type='text' name='last_name' id='last_name'></label>
+						Email: <input type='text' name='email'>
+					<input type='submit' value='Update'>
+				</form>
+			{% endfor %}
+		{%endif%}
+	</body>
 </html>
