@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, render_template, session, flash
 from mysqlconnection import MySQLConnector
-
 import re
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
@@ -66,7 +65,7 @@ def update(friend_id):
 		lname = request.form['last_name']
 	else:
 		lname = original[0]['last_name']
-	if len(request.form['email'])>0 and not EMAIL_REGEX.match(request.form['email']):
+	if (len(request.form['email'])>0) and EMAIL_REGEX.match(request.form['email']):
 		mail = request.form['email']
 	else:
 		mail = original[0]['email']
