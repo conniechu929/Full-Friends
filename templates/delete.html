@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>Delete Info</title>
+</head>
+<body>
+	<h1>Are you sure you want to delete?</h1>
+	<form action="/friends/{{ friend['id'] }}/delete" method='post'>
+		<input type='hidden' name='id' value="{{ friend['id'] }}">
+		<input type='submit' value='Yes' name='delete'>
+	</form>
+	<form action="/" method='post'>
+		<input type='submit' value='No'>
+	</form>
+
+</body>
+</html>

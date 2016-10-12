@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Update Info</title>
+</head>
+<body>
+	{%if all_friends%}
+	{% for friend in all_friends: %}
+		<form action="/friends/{{ friend['id'] }}" method='post'>
+			<input type='hidden' name='id' value="{{ friend['id'] }}">
+				<label for='first_name'>First Name:<input type='text' name='first_name' id='first_name'></label>
+				<label for='last_name'>Last Name:<input type='text' name='last_name' id='last_name'></label>
+				Email: <input type='text' name='email'>
+			<input type='submit' value='update'>
+		</form>
+	{% endfor %}
+	{%endif%}
+</body>
+</html>
