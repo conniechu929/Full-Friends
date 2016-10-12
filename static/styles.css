@@ -1,0 +1,16 @@
+.friend_info{
+  display: inline-block;
+  vertical-align: top;
+}
+.friend_buttons{
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 20px;
+}
+
+.square{
+  border: 1px solid black;
+  padding-left: 15px;
+  width: 300px;
+  margin-bottom: 5px;
+}

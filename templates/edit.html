@@ -4,7 +4,7 @@
 </head>
 <body>
 	{%if all_friends%}
-	{% for friend in all_friends: %}
+	{%for friend in all_friends:%}
 		<form action="/friends/{{ friend['id'] }}" method='post'>
 			<input type='hidden' name='id' value="{{ friend['id'] }}">
 				<label for='first_name'>First Name:<input type='text' name='first_name' id='first_name'></label>
